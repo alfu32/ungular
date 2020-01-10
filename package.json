@@ -1,0 +1,28 @@
+{
+  "name": "ungular",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "cfg:init": "yarn tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowJs true --noImplicitAny true",
+    "prebuild": "yarn rimraf ./build",
+    "postbuild": "powershell Copy-Item .\\src\\*.xml .\\build\\ -Recurse",
+    "start:dev": "nodemon",
+    "start": "yarn tsc -v && yarn prebuild && yarn tsc && yarn postbuild && node build/index.js",
+    "build-src": "yarn tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.4",
+    "cpy-cli": "^3.0.0",
+    "del-cli": "^3.0.0",
+    "nodemon": "^2.0.2",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "flatted": "^2.0.1",
+    "prettify-xml": "^1.2.0",
+    "xmldom": "^0.2.1"
+  }
+}

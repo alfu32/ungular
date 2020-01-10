@@ -1,0 +1,11 @@
+<app-layout type="vertical">
+    <app-row>
+        <app-title>${title}</app-title>
+    </app-row>
+    <app-row>
+        <app-link x-foreach="item of links">${item.url}</app-link>
+    </app-row>
+    <app-row>
+        <app-content>${content}</app-content>
+    </app-row>
+</app-layout>
